@@ -1,0 +1,5 @@
+# dconf path
+[org/gnome/desktop/background/xerolinux]
+
+# dconf key names and their corresponding values
+picture-uri='file:///usr/share/backgrounds/xerolinux/Xero01.jpg'
