@@ -78,26 +78,28 @@ alias install='sudo pacman -S'
 alias linstall='sudo pacman -U '
 alias update='sudo pacman -Syyu'
 alias clrcache='sudo pacman -Scc'
-alias updb='paru && sudo pacman -Sy'
+
+## Orphans
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
 
-#Paru as aur helper - updates everything
+#Paru as aur helper
 alias pget='paru -S '
 alias prm='paru -Rs '
 alias psr='paru -Ss '
-alias upall='paru -Syyu --noconfirm'
 
-#Flatpak Update
-alias fpup='flatpak update'
+#YaY as aur helper
+alias yget='yay -S '
+alias yrm='yay -Rs '
+alias ysr='yay -Ss '
 
-#Snap Update
-alias sup='sudo snap refresh'
+#Update all
+alias upall='topget'
 
 #grub update
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 #get fastest mirrors in your neighborhood
-alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
+alias ram='rate-mirrors --allow-root --disable-comments --protocol https arch  | sudo tee /etc/pacman.d/mirrorlist'
 alias reft='sudo systemctl enable reflector.service reflector.timer && sudo systemctl start reflector.service reflector.timer'
 
 #quickly kill stuff
