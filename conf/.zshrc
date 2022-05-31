@@ -166,7 +166,7 @@ alias yrm='yay -Rs '
 alias ysr='yay -Ss '
 
 #Update all
-alias upall='topget'
+alias upall='topgrade'
 
 #grub update
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
