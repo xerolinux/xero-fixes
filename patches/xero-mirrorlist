@@ -1,7 +1,9 @@
 
 #######################################################
+
+# Direct Host From Asia Pacific (Both XL And Normal)
+Server = https://mirror.funami.tech/xerolinux/$repo/$arch
+
 # Direct Paid Host United States
 Server = https://repos.xerolinux.xyz/$repo/$arch
 
-# Github United States (No XL Repo There)
-#Server = https://xerolinux.github.io/$repo/$arch
