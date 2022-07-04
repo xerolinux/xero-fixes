@@ -1,78 +1,10 @@
-#
-# ~/.bashrc
-#
 
-#Ibus settings if you need them
-#type ibus-setup in terminal to change settings and start the daemon
-#delete the hashtags of the next lines and restart
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=dbus
-#export QT_IM_MODULE=ibus
+# Paru/Yay stuff
+alias pget='paru -S '
+alias yget='yay -S '
+alias yrem='yay -R '
+alias prem='paru -R '
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-export HISTCONTROL=ignoreboth:erasedups
-
-PS1='[\u@\h \W]\$ '
-
-if [ -d '$HOME/.bin' ] ;
-  then PATH='$HOME/.bin:$PATH'
-fi
-
-if [ -d '$HOME/.local/bin' ] ;
-  then PATH='$HOME/.local/bin:$PATH'
-fi
-
-# Path to your Snap installation.
-export PATH=$PATH:/snap/bin
-
-##Snapper Stuff
-alias snapls='sudo snapper list'
-
-##Cmatrix thing
-alias matrix='cmatrix -s -C cyan'
-
-#iso and version used to install ArcoLinux
-alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
-
-#ignore upper and lowercase when TAB completion
-bind 'set completion-ignore-case on'
-
-#systeminfo
-alias probe='sudo -E hw-probe -all -upload'
-
-# Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l='exa -lah --color=always --group-directories-first --icons' # tree listing
-
-#pacman unlock
-alias unlock='sudo rm /var/lib/pacman/db.lck'
-
-#available free memory
-alias free='free -mt'
-
-#continue download
-alias wget='wget -c'
-
-#readable output
-alias df='df -h'
-
-#userlist
-alias userlist='cut -d: -f1 /etc/passwd'
-
-#Pacman for software managment
-alias search='sudo pacman -Qs'
-alias remove='sudo pacman -R'
-alias install='sudo pacman -S'
-alias linstall='sudo pacman -U '
-alias update='sudo pacman -Syyu'
-alias clrcache='sudo pacman -Scc'
-alias updb='paru && sudo pacman -Sy'
-alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
 
 #Flatpak Update
 alias fpup='flatpak update'
@@ -83,12 +15,6 @@ alias sup='sudo snap refresh'
 #skip integrity check
 alias paruskip='paru -S --mflags --skipinteg'
 alias yayskip='yay -S --mflags --skipinteg'
-
-#Easter Eggs
-alias a1='figlet -c -w 100 Alan1000'
-alias gk='figlet -c -w 100 GamerKing64'
-alias digi='figlet -c -w 100 Digidude512'
-alias imr='figlet -c -f banner -w 111 I am / root'
 
 #grub update
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
