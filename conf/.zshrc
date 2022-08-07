@@ -211,7 +211,7 @@ alias scpd='sudo cp -R'
 #nano
 alias nz='$EDITOR ~/.zshrc'
 alias nbashrc='sudo nano ~/.bashrc'
-alias nzshrc='sudo nano ~/.bashrc'
+alias nzshrc='sudo nano ~/.zshrc'
 alias nsddm='sudo nano /etc/sddm.conf'
 alias pconf='sudo nano /etc/pacman.conf'
 alias mkpkg='sudo nano /etc/makepkg.conf'
