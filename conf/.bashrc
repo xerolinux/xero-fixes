@@ -65,7 +65,7 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='topgrade'
+alias upall='akring && topgradetopgrade'
 alias search='sudo pacman -Qs'
 alias remove='sudo pacman -R'
 alias install='sudo pacman -S'
@@ -73,13 +73,13 @@ alias linstall='sudo pacman -U '
 alias update='sudo pacman -Syyu'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias akring='sudo pacman -S archlinux-keyring --noconfirm'
 
 # Paru/Yay stuff
 alias pget='paru -S '
 alias yget='yay -S '
 alias yrem='yay -R '
 alias prem='paru -R '
-
 
 #Flatpak Update
 alias fpup='flatpak update'
