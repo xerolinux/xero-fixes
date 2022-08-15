@@ -150,7 +150,7 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='topgrade'
+alias upall='akring && topgradetopgrade'
 alias search='sudo pacman -Qs'
 alias remove='sudo pacman -R'
 alias install='sudo pacman -S'
@@ -158,13 +158,13 @@ alias linstall='sudo pacman -U '
 alias update='sudo pacman -Syyu'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias akring='sudo pacman -S archlinux-keyring --noconfirm'
 
 # Paru/Yay stuff
 alias pget='paru -S '
 alias yget='yay -S '
 alias yrem='yay -R '
 alias prem='paru -R '
-
 
 #Flatpak Update
 alias fpup='flatpak update'
@@ -233,9 +233,6 @@ alias dldz='cd ~/Downloads'
 alias docs='cd ~/Documents'
 alias sapps='cd /usr/share/applications'
 alias lapps='cd ~/.local/share/applications'
-
-#verify signature for isos
-alias gpg-check='gpg2 --keyserver-options auto-key-retrieve --verify'
 
 #receive the key of a developer
 alias gpg-retrieve='gpg2 --keyserver-options auto-key-retrieve --receive-keys'
