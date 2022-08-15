@@ -150,7 +150,7 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='akring && topgrade'
+alias upall='topgrade'
 alias search='sudo pacman -Qs'
 alias remove='sudo pacman -R'
 alias install='sudo pacman -S'
@@ -158,7 +158,7 @@ alias linstall='sudo pacman -U '
 alias update='sudo pacman -Syyu'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias akring='sudo pacman -S archlinux-keyring --noconfirm'
+alias akring='sudo pacman -Sy archlinux-keyring --noconfirm'
 
 # Paru/Yay stuff
 alias pget='paru -S '
