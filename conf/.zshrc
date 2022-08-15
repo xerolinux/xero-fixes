@@ -150,7 +150,7 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='akring && topgradetopgrade'
+alias upall='akring && topgrade'
 alias search='sudo pacman -Qs'
 alias remove='sudo pacman -R'
 alias install='sudo pacman -S'
