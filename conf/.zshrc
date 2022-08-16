@@ -118,8 +118,10 @@ source $ZSH/oh-my-zsh.sh
 ##Snapper Stuff
 alias snapls='sudo snapper list'
 
-# Replace cat with bat
+# Replace stuff with bat
 alias cat='bat '
+alias rg='batgrep '
+alias man='batman '
 
 ##Cmatrix thing
 alias matrix='cmatrix -s -C cyan'

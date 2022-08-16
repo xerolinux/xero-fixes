@@ -24,14 +24,19 @@ if [ -d '$HOME/.local/bin' ] ;
   then PATH='$HOME/.local/bin:$PATH'
 fi
 
+# Path to bat config
+export BAT_CONFIG_PATH="~/.config/bat/config.conf"
+
 # Path to your Snap installation.
 export PATH=$PATH:/snap/bin
 
 ##Snapper Stuff
 alias snapls='sudo snapper list'
 
-# Replace cat with bat
+# Replace stuff with bat
 alias cat='bat '
+alias rg='batgrep '
+alias man='batman '
 
 ##Cmatrix thing
 alias matrix='cmatrix -s -C cyan'
