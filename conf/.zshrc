@@ -115,6 +115,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+# Path to bat config
+export BAT_CONFIG_PATH="~/.config/bat/config.conf"
+
 ##Snapper Stuff
 alias snapls='sudo snapper list'
 
