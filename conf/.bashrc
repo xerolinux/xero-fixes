@@ -128,7 +128,6 @@ alias rmd='rm -r'
 alias srm='sudo rm'
 alias srmd='sudo rm -r'
 alias cpd='cp -R'
-alias scp='sudo cp'
 alias scpd='sudo cp -R'
 
 #nano
