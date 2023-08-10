@@ -27,9 +27,6 @@ fi
 # Path to bat config
 export BAT_CONFIG_PATH="~/.config/bat/config.conf"
 
-# LibAwaita Theme
-export GTK_THEME=Layan-Dark
-
 # Replace stuff with bat
 alias cat='bat '
 alias rg='batgrep '
