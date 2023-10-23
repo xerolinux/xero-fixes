@@ -120,7 +120,7 @@ alias cat='bat '
 alias rg='batgrep '
 alias man='tldr '
 
-#iso and version used to install ArcoLinux
+#iso and version used to install XeroLinux
 alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
 #ignore upper and lowercase when TAB completion
@@ -156,7 +156,7 @@ alias upall='topgrade'
 alias search='pamac search '
 alias remove='sudo pacman -R '
 alias install='sudo pacman -S '
-alias linstall='sudo pacman -U '
+alias linstall='sudo pacman -U *.pkg.tar.zst'
 alias update='sudo pacman -Syyu && flatpak update'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
