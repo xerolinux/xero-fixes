@@ -123,9 +123,6 @@ alias man='tldr '
 #iso and version used to install XeroLinux
 alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
-#ignore upper and lowercase when TAB completion
-bind 'set completion-ignore-case on'
-
 #systeminfo
 alias probe='sudo -E hw-probe -all -upload'
 
