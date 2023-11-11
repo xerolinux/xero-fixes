@@ -151,7 +151,7 @@ alias userlist='cut -d: -f1 /etc/passwd'
 #Pacman for software managment
 alias upall='topgrade'
 alias search='pamac search '
-alias remove='sudo pacman -R '
+alias remove='sudo pacman -Rns '
 alias install='sudo pacman -S '
 alias linstall='sudo pacman -U *.pkg.tar.zst'
 alias update='sudo pacman -Syyu && flatpak update'
