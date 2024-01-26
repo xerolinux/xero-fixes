@@ -149,9 +149,8 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='topgrade'
-alias search='pamac search '
-alias remove='sudo pacman -Rns '
+alias search='pacman -F '
+alias remove='sudo pacman -Rs '
 alias install='sudo pacman -S '
 alias linstall='sudo pacman -U *.pkg.tar.zst'
 alias update='sudo pacman -Syyu && flatpak update'
@@ -174,9 +173,6 @@ alias zreload='cd ~ && source ~/.zshrc'
 alias pingme='ping -c64 github.com'
 alias cls='clear && neofetch'
 alias traceme='traceroute github.com'
-
-#hardware info --short
-alias hw='hwinfo --short'
 
 #youtube-dl
 alias yta-best="yt-dlp --extract-audio --audio-format best "
@@ -235,15 +231,6 @@ alias infox='sudo pacman -Sii '
 
 ##Refresh Keys
 alias rkeys='sudo pacman-key --refresh-keys'
-
-### HBLOCK Stuff
-
-alias hblock="sudo hblock"
-alias unhblock="hblock -S none -D none"
-
-### Building & Installing
-
-alias mkinstall='makepkg -rsi --noconfirm'
 
 #shutdown or reboot
 alias sr='sudo reboot'
