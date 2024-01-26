@@ -9,6 +9,10 @@
 #export XMODIFIERS=@im=dbus
 #export QT_IM_MODULE=ibus
 
+## Starship
+eval "$(starship init bash)"
+export STARSHIP_CONFIG="~/.config/starship/starship.toml"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -42,14 +46,11 @@ bind 'set completion-ignore-case on'
 alias probe='sudo -E hw-probe -all -upload'
 
 # Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l='exa -lah --color=always --group-directories-first --icons' # tree listing
-
-#pacman unlock
-alias unlock='sudo rm /var/lib/pacman/db.lck'
+alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l='eza -lah --color=always --group-directories-first --icons' # tree listing
 
 #available free memory
 alias free='free -mt'
@@ -64,11 +65,10 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Pacman for software managment
-alias upall='topgrade'
-alias search='pamac search '
-alias remove='pamac remove '
-alias install='pamac install'
-alias linstall='sudo pacman -U '
+alias search='pacman -F '
+alias remove='sudo pacman -Rs '
+alias install='sudo pacman -S'
+alias linstall='sudo pacman -U *.pkg.tar.zst'
 alias update='pamac update && flatpak update'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
