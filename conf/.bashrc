@@ -188,4 +188,4 @@ ex ()
   fi
 }
 
-neofetch
+fastfetch
