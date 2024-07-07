@@ -171,7 +171,7 @@ alias jctl='journalctl -p 3 -xb'
 alias breload='cd ~ && source ~/.bashrc'
 alias zreload='cd ~ && source ~/.zshrc'
 alias pingme='ping -c64 github.com'
-alias cls='clear && neofetch'
+alias cls='clear && fastfetch'
 alias traceme='traceroute github.com'
 
 #youtube-dl
