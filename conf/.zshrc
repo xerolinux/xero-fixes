@@ -231,4 +231,4 @@ alias sr='sudo reboot'
 alias ssn='sudo shutdown now'
 
 # Using Oh-My-Posh.
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/easy-term.omp.json)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyonight_storm.omp.json)"
