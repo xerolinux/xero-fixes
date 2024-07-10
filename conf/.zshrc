@@ -112,7 +112,7 @@ alias rg='batgrep '
 alias man='tldr '
 
 #iso and version used to install XeroLinux
-alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+alias iso="cat /etc/lsb-release"
 
 #systeminfo
 alias probe='sudo -E hw-probe -all -upload'
