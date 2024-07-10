@@ -75,7 +75,7 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aliases archlinux branch github zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-interactive-cd zsh-navigation-tools zsh-history-substring-search)
+plugins=(git adb aliases alias-finder archlinux branch docker-compose emoji github jump rust zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-interactive-cd zsh-navigation-tools history history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
