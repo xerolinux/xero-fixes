@@ -1,17 +1,13 @@
 #
 # ~/.bashrc
 #
-
+clear && fastfetch
 #Ibus settings if you need them
 #type ibus-setup in terminal to change settings and start the daemon
 #delete the hashtags of the next lines and restart
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=dbus
 #export QT_IM_MODULE=ibus
-
-## Starship
-eval "$(starship init bash)"
-export STARSHIP_CONFIG="~/.config/starship/starship.toml"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -111,6 +107,7 @@ alias scpd='sudo cp -R'
 
 #nano
 alias nz='$EDITOR ~/.zshrc'
+alias cls='clear && fastfetch'
 alias nbashrc='sudo nano ~/.bashrc'
 alias nzshrc='sudo nano ~/.zshrc'
 alias nsddm='sudo nano /etc/sddm.conf'
@@ -187,5 +184,3 @@ ex ()
     echo ''$1' is not a valid file'
   fi
 }
-
-fastfetch
