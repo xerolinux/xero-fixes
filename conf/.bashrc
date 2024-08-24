@@ -1,4 +1,23 @@
 #
+export BAT_CONFIG_PATH="~/.config/bat/config.conf"
+
+# Replace stuff with bat
+alias cat='bat '
+alias rg='batgrep '
+alias man='tldr '
+
+#iso and version used to install ArcoLinux
+alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+
+#ignore upper and lowercase when TAB completion
+bind 'set completion-ignore-case on'
+
+#systeminfo
+alias probe='sudo -E hw-probe -all -upload'
+
+# Replace ls with exa
+alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+alias la='eza -a --color=always --group-directories-first --
 # ~/.bashrc
 #
 clear && fastfetch
@@ -24,26 +43,7 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Path to bat config
-export BAT_CONFIG_PATH="~/.config/bat/config.conf"
-
-# Replace stuff with bat
-alias cat='bat '
-alias rg='batgrep '
-alias man='tldr '
-
-#iso and version used to install ArcoLinux
-alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
-
-#ignore upper and lowercase when TAB completion
-bind 'set completion-ignore-case on'
-
-#systeminfo
-alias probe='sudo -E hw-probe -all -upload'
-
-# Replace ls with exa
-alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
-alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+# Path to bat configicons'  # all files and dirs
 alias ll='eza -l --color=always --group-directories-first --icons'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l='eza -lah --color=always --group-directories-first --icons' # tree listing
@@ -65,7 +65,7 @@ alias search='pacman -F '
 alias remove='sudo pacman -Rs '
 alias install='sudo pacman -S'
 alias linstall='sudo pacman -U *.pkg.tar.zst'
-alias update='pamac update && flatpak update'
+alias update='sudo pacman -Syyu && flatpak update'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
 
