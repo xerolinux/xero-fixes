@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Actions=RunWithNVIDIA
+Icon=nvidia
+
+[Desktop Action RunWithNVIDIA]
+Name=Run with NVIDIA dGPU
+Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %F
