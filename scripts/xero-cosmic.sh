@@ -105,10 +105,10 @@ main_menu() {
       clear && install_packages "cosmic linux-headers pacman-contrib xdg-user-dirs power-profiles-daemon wayland-protocols wayland-utils"
       ;;
     2)
-      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon  wayland-protocols wayland-utils"
+      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils"
       ;;
     3)
-      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon  wayland-protocols wayland-utils"
+      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils"
       ;;
     *)
       if [ "$CHOICE" == "" ]; then
