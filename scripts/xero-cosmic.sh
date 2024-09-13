@@ -27,11 +27,14 @@ show_dialog() {
     response=$?
     if [ $response -eq 0 ]; then
         echo
-        echo "User chose to proceed with the installation."
+        clear && echo "Proceeding with the installation..."
+        sleep 3
         return 0
     else
         echo
-        clear && echo "User canceled the installation."
+        clear && echo "Canceling the installation..."
+        echo
+        sleep 3
         exit 1
     fi
 }
@@ -102,20 +105,20 @@ main_menu() {
 
   case "$CHOICE" in
     1)
-      clear && install_packages "cosmic linux-headers pacman-contrib xdg-user-dirs power-profiles-daemon wayland-protocols wayland-utils"
+      clear && install_packages "cosmic linux-headers pacman-contrib xdg-user-dirs power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     2)
-      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils"
+      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     3)
-      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils"
+      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     *)
       if [ "$CHOICE" == "" ]; then
         clear
         exit 0
       else
-        dialog --msgbox "Invalid option. Please select 1 or 2." 10 40
+        dialog --msgbox "Invalid option. Please select 1, 2 or 3." 10 40
         main_menu
       fi
       ;;
@@ -123,6 +126,7 @@ main_menu() {
 
   # Only enable services after package installation
   systemctl enable cosmic-greeter.service && xdg-user-dirs-update
+  systemctl enable com.system76.PowerDaemon.service.service
 
 }
 
@@ -139,10 +143,7 @@ systemctl enable bluetooth.service
 echo
 echo "Installing other useful applications..."
 echo
-install_packages "system76-power downgrade update-grub meld timeshift mpv gnome-disk-utility btop nano git rustup eza ntp most wget dnsutils logrotate gtk-update-icon-cache dex bash-completion bat bat-extras ttf-fira-code otf-libertinus tex-gyre-fonts ttf-hack-nerd ttf-ubuntu-font-family awesome-terminal-fonts ttf-jetbrains-mono-nerd adobe-source-sans-pro-fonts gtk-engines gtk-engine-murrine gnome-themes-extra firefox firefox-ublock-origin ntfs-3g gvfs mtpfs udiskie udisks2 ldmtool gvfs-afc gvfs-mtp gvfs-nfs gvfs-smb gvfs-gphoto2 libgsf tumbler freetype2 libopenraw ffmpegthumbnailer python-pip python-cffi python-numpy python-docopt python-pyaudio python-pyparted python-pygments python-websockets ocs-url xmlstarlet yt-dlp wavpack unarchiver gnustep-base parallel systemdgenie gnome-keyring ark vi duf gcc yad zip xdo lzop nmon tree vala htop lshw cmake cblas expac fuse3 lhasa meson unace unrar unzip p7zip rhash sshfs vnstat nodejs cronie hwinfo arandr assimp netpbm wmctrl grsync libmtp polkit sysprof semver zenity gparted hddtemp mlocate jsoncpp fuseiso gettext node-gyp intltool graphviz pkgstats inetutils s3fs-fuse playerctl oniguruma cifs-utils lsb-release dbus-python dconf-editor laptop-detect perl-xml-parser gnome-disk-utility appmenu-gtk-module lib32-wayland"
-echo
-echo "Enabeling system76-power-daemon..."
-systemctl enable com.system76.PowerDaemon.service.service
+install_packages "downgrade update-grub meld timeshift mpv gnome-disk-utility btop nano git rustup eza ntp most wget dnsutils logrotate gtk-update-icon-cache dex bash-completion bat bat-extras ttf-fira-code otf-libertinus tex-gyre-fonts ttf-hack-nerd ttf-ubuntu-font-family awesome-terminal-fonts ttf-jetbrains-mono-nerd adobe-source-sans-pro-fonts gtk-engines gtk-engine-murrine gnome-themes-extra firefox firefox-ublock-origin ntfs-3g gvfs mtpfs udiskie udisks2 ldmtool gvfs-afc gvfs-mtp gvfs-nfs gvfs-smb gvfs-gphoto2 libgsf tumbler freetype2 libopenraw ffmpegthumbnailer python-pip python-cffi python-numpy python-docopt python-pyaudio python-pyparted python-pygments python-websockets ocs-url xmlstarlet yt-dlp wavpack unarchiver gnustep-base parallel systemdgenie gnome-keyring ark vi duf gcc yad zip xdo lzop nmon tree vala htop lshw cmake cblas expac fuse3 lhasa meson unace unrar unzip p7zip rhash sshfs vnstat nodejs cronie hwinfo arandr assimp netpbm wmctrl grsync libmtp polkit sysprof semver zenity gparted hddtemp mlocate jsoncpp fuseiso gettext node-gyp intltool graphviz pkgstats inetutils s3fs-fuse playerctl oniguruma cifs-utils lsb-release dbus-python dconf-editor laptop-detect perl-xml-parser gnome-disk-utility appmenu-gtk-module"
 
 # Check if GRUB is installed
 if command -v grub-mkconfig &> /dev/null; then
