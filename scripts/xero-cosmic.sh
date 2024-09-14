@@ -14,6 +14,12 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+# Check if the script is running on Arch Linux
+# if ! grep -q "Arch Linux" /etc/os-release; then
+#   dialog --title "!! Unknown/Custom Distro !!" --colors --msgbox "\nThis script must be run on \Zb\Z1Vanilla Arch\Zn. Running it on any other Distro, even \Zb\Z6Arch-Spins\Zn might cause issues.\n\nHit OK to exit." 10 60
+#   exit 1
+# fi
+
 # Check if dialog is installed, if not, install it
 if ! command -v dialog &> /dev/null; then
   echo
@@ -23,7 +29,7 @@ fi
 
 # Function to display a dialog and handle user response
 show_dialog() {
-    dialog --title "Cosmic Compatibility Check" --colors --yesno "$1 We will have to add the \Zb\Z1XeroLinux\Zn and \Zb\Z6Chaotic-AUR\Zn repositories in order to install the \Zb\Z4Development\Zn version. Do you want to proceed with installation ?\n\n\Zb\Z6Alpha 1 Software, Proceed at your OWN RISK!.\Zn" 13 70
+    dialog --title "Cosmic Compatibility Check" --colors --yesno "$1 Doing so will add the \Zb\Z1XeroLinux\Zn and \Zb\Z6Chaotic-AUR\Zn repos for the \Zb\Z4Development\Zn version to work, should you choose it.\n\n\Zb\Z6Alpha 1 Software, Proceed at your OWN RISK!.\Zn" 13 69
     response=$?
     if [ $response -eq 0 ]; then
         echo
@@ -47,26 +53,26 @@ check_gpu_cosmic_compatibility() {
         if echo "$GPU_INFO" | grep -qi "NVIDIA"; then
             # Check for NVIDIA GPU compatibility (900 series and up)
             if echo "$GPU_INFO" | grep -Eqi "GTX (9[0-9]{2}|[1-9][0-9]{3})|RTX|Titan|A[0-9]{2,3}"; then
-                show_dialog "\n\Your nVidia GPU should support \Zb\Z1Cosmic Desktop\Zn, do you want to proceed?"
+                show_dialog "\n\nYour \Zb\Z6nVidia\Zn GPU should support \Zb\Z1Cosmic Desktop\Zn, do you want to proceed?"
             else
-                show_dialog "\n\Older nVidia GPU detected. Only 900 series and later support \Zb\Z1Cosmic Desktop\Zn."
+                show_dialog "\n\nOlder \Zb\Z6nVidia\Zn GPU detected. Only 900 series and later support \Zb\Z1Cosmic Desktop\Zn."
             fi
         elif echo "$GPU_INFO" | grep -qi "Intel"; then
             # Check for Intel GPU compatibility (HD Graphics 4000 series and newer)
             if echo "$GPU_INFO" | grep -Eqi "HD Graphics ([4-9][0-9]{2,3}|[1-9][0-9]{4,})|Iris|Xe"; then
-                show_dialog "\n\nYour Intel GPU should support \Zb\Z1Cosmic Desktop\Zn."
+                show_dialog "\n\nYour \Zb\Z6Intel\Zn GPU should support \Zb\Z1Cosmic Desktop\Zn."
             else
-                show_dialog "Older Intel GPU detected. Only HD Graphics 4000 series and newer support \Zb\Z1Cosmic Desktop\Zn."
+                show_dialog "\n\nOlder \Zb\Z6Intel\Zn GPU detected. Only HD Graphics 4000 series and newer support \Zb\Z1Cosmic Desktop\Zn."
             fi
         elif echo "$GPU_INFO" | grep -qi "AMD"; then
             # Check for AMD GPU compatibility (RX 480 and newer)
             if echo "$GPU_INFO" | grep -Eqi "RX (4[8-9][0-9]|[5-9][0-9]{2,3})|VEGA|RDNA|RADEON PRO"; then
-                show_dialog "\n\Your AMD GPU should support \Zb\Z1Cosmic Desktop\Zn, do you want to proceed?"
+                show_dialog "\n\nYour \Zb\Z6AMD\Zn GPU should support \Zb\Z1Cosmic Desktop\Zn, do you want to proceed?"
             else
-                show_dialog "\n\Older AMD GPU detected. Only RX 480 and newer support \Zb\Z1Cosmic Desktop\Zn."
+                show_dialog "\n\nOlder \Zb\Z6AMD\Zn GPU detected. Only RX 480 and newer support \Zb\Z1Cosmic Desktop\Zn."
             fi
         else
-            show_dialog "\n\Unknown or unsupported GPU detected. \Zb\Z1Cosmic Desktop\Zn compatibility is uncertain."
+            show_dialog "\n\nUnknown or unsupported GPU detected. \Zb\Z1Cosmic Desktop\Zn compatibility is uncertain."
         fi
     else
         show_dialog "Cannot detect GPU. 'lspci' command not found."
@@ -98,20 +104,20 @@ selective_install() {
 
 # Main menu using dialog
 main_menu() {
-  CHOICE=$(dialog --stdout --title ">> XeroLinux Cosmic Alpha 1 Install <<" --menu "\nChoose how to install Cosmic Alpha 1" 15 60 4 \
-    1 "Complete  : Complete Cosmic Install." \
-    2 "Dev-Ver.  : Rolling  Cosmic Install." \
-    3 "Selective : Selective Cosmic Installation.")
+  CHOICE=$(dialog --stdout --title ">> XeroLinux Cosmic Alpha 1 Install <<" --menu "\nChoose how to install Cosmic Alpha 1" 11 60 4 \
+    1 "Complete     : Complete  Cosmic Install." \
+    2 "Selective    : Selective Cosmic Installation." \
+    3 "Development  : Rolling   Cosmic Install -DANGER-.")
 
   case "$CHOICE" in
     1)
-      clear && install_packages "cosmic linux-headers pacman-contrib xdg-user-dirs power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
+      clear && install_packages "cosmic linux-headers pacman-contrib xdg-user-dirs wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     2)
-      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
+      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirs wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     3)
-      clear && selective_install "cosmic linux-headers pacman-contrib xdg-user-dirssystemctl power-profiles-daemon wayland-protocols wayland-utils lib32-wayland system76-power"
+      clear && install_packages "cosmic-session-git linux-headers pacman-contrib xdg-user-dirs switcheroo-control xdg-desktop-portal-cosmic-git xorg-xwayland just mold cosmic-edit-git cosmic-files-git cosmic-store-git cosmic-term-git cosmic-wallpapers-git wayland-protocols wayland-utils lib32-wayland system76-power"
       ;;
     *)
       if [ "$CHOICE" == "" ]; then
@@ -126,7 +132,7 @@ main_menu() {
 
   # Only enable services after package installation
   systemctl enable cosmic-greeter.service && xdg-user-dirs-update
-  systemctl enable com.system76.PowerDaemon.service.service
+  systemctl enable com.system76.PowerDaemon.service
 
 }
 
