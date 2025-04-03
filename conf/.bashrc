@@ -142,6 +142,10 @@ alias gpg-retrieve='gpg2 --keyserver-options auto-key-retrieve --receive-keys'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
+#Fixes & Tools
+alias rshell='systemctl --user restart plasma-plasmashell.service'
+alias rpower='sudo systemct restart power-profiles-daemon'
+
 #Package Info
 alias info='sudo pacman -Si '
 alias infox='sudo pacman -Sii '
