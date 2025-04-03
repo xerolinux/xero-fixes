@@ -70,7 +70,7 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aliases alias-finder archlinux branch docker-compose emoji github jump rust zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-interactive-cd zsh-navigation-tools history history-substring-search)
+plugins=(git aliases alias-finder archlinux branch docker-compose emoji github jump rust zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-interactive-cd zsh-navigation-tools history)
 
 source $ZSH/oh-my-zsh.sh
 
