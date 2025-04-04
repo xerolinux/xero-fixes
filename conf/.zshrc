@@ -138,8 +138,8 @@ alias df='df -h'
 alias userlist='cut -d: -f1 /etc/passwd'
 
 #Fixes & Tools
+alias rpower='sudo systemctl restart power-profiles-daemon'
 alias rshell='systemctl --user restart plasma-plasmashell.service'
-alias rpower='sudo systemct restart power-profiles-daemon'
 
 #Pacman for software managment
 alias search='pacman -Ss '
