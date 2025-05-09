@@ -166,6 +166,7 @@ alias zreload='cd ~ && source ~/.zshrc'
 alias pingme='ping -c64 github.com'
 alias cls='clear && fastfetch'
 alias traceme='traceroute github.com'
+alias xff='clear && fastfetch --config ~/.config/fastfetch/stationxero.jsonc'
 
 #youtube-dl
 alias yta-best="yt-dlp --extract-audio --audio-format best "
